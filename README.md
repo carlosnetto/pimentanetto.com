@@ -21,7 +21,11 @@ Personal website for Carlos Netto, built with React, Vite, and Tailwind CSS, and
     npm install
     ```
 2.  **Environment Setup:**
-    Ensure you have your `GEMINI_API_KEY` in a `.env` file (see `.env.example`).
+    Ensure you have a `.env` file with the following variables:
+    ```bash
+    GEMINI_API_KEY=your_gemini_api_key_here
+    CLOUDFLARE_API_TOKEN=your_cloudflare_api_token_here
+    ```
 3.  **Run Dev Server:**
     ```bash
     npm run dev
@@ -45,18 +49,19 @@ This generates:
 
 The project is hosted on **Cloudflare Pages**.
 
-### Deployment Command
-To deploy manually from the CLI:
+### Automated Deployment
+To deploy your site, run:
 ```bash
-npx wrangler pages deploy target --project-name pimentanetto-com
+npm run deploy
 ```
+This command uses `dotenv` to load your `CLOUDFLARE_API_TOKEN` and deploy the `target/` folder to the `pimentanetto-com` project.
 
 ### Custom Domain
-The site is configured to serve from **pimentanetto.com**.
+The site is live at: **[pimentanetto.com](https://pimentanetto.com)**
 - **Project Name:** `pimentanetto-com`
 - **Deployment URL:** `https://pimentanetto-com.pages.dev`
 
 ## Tech Stack
 - **Frontend:** React 19, Vite 6, TypeScript
 - **Styling:** Tailwind CSS 4, Motion (Framer Motion)
-- **Deployment:** Cloudflare Pages
+- **Deployment:** Cloudflare Pages + Wrangler
